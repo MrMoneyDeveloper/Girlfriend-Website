@@ -5,5 +5,5 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   // MUST match repo name for GitHub Pages
-  base: '/my-lenis-anime/',
+  base: '/Girlfriend-Website/',
 })
