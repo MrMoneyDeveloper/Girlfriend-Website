@@ -1,12 +1,14 @@
-import React, { useEffect, useRef } from 'react';
-import { animate } from 'animejs';
+import { useEffect, useRef } from 'react';
+import anime from 'animejs/lib/anime.es.js';  // ✅ correct ES‑module build
 import '../styles/Section.css';
 
-export default function Section({ id, title, content }) {
+export default function Section({ id, children, title, content }) {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    animate({
+    if (!sectionRef.current) return;          // safety guard
+
+    anime({
       targets: sectionRef.current,
       opacity: [0, 1],
       translateY: [50, 0],
@@ -17,8 +19,14 @@ export default function Section({ id, title, content }) {
 
   return (
     <section ref={sectionRef} className="section" id={id}>
-      <h2 className="outlined-text">{title}</h2>
-      <p className="outlined-text">{content}</p>
+      {children ? (
+        children                                      // modern usage
+      ) : (
+        <>
+          {title && <h2 className="outlined-text">{title}</h2>}
+          {content && <p className="outlined-text">{content}</p>}
+        </>
+      )}
     </section>
   );
 }
