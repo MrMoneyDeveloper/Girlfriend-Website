@@ -1,0 +1,82 @@
+---
+# Central default layout – used by every page
+# Save as /_layouts/default.html
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+  <!-- =============== META =============== -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="{{ page.description | default: site.description }}" />
+  <title>{{ page.title | default: site.title }}</title>
+  <link rel="icon" type="image/png" href="{{ '/assets/images/Tab_Icon.png' | relative_url }}">
+
+  <!-- =============== VENDOR CSS =============== -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- =============== MASTER THEME =============== -->
+ <link href="{{ '/assets/css/style.css' | relative_url }}" rel="stylesheet">
+  {%- if page.extra_css -%}
+    {%- for css in page.extra_css -%}
+      <link rel="stylesheet" href="{{ css }}">
+    {%- endfor -%}
+  {%- endif -%}
+</head>
+<body class="d-flex flex-column min-vh-100 text-light">
+  <div id="vanta-bg"></div>
+  {%- assign current = page.url | downcase | default:'/' -%}
+  <!-- =============== NAVBAR =============== -->
+  <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm border-bottom border-warning-subtle">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="index.html"><i class="bi bi-shield-shaded me-1 text-warning"></i> FB Realm</a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navContent">
+        <ul class="navbar-nav ms-auto fw-semibold">
+          <li class="nav-item"><a class="nav-link {% if current == '/' or current == '/index.html' %}active{% endif %}" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link {% if current == '/about.html' %}active{% endif %}" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link {% if current == '/skills.html' %}active{% endif %}" href="skills.html">Skills</a></li>
+          <li class="nav-item"><a class="nav-link {% if current == '/projects.html' %}active{% endif %}" href="projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link {% if current == '/experience.html' %}active{% endif %}" href="experience.html">Experience</a></li>
+          <li class="nav-item"><a class="nav-link {% if current == '/contact.html' %}active{% endif %}" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- =============== PAGE CONTENT =============== -->
+  <main id="main-content" class="container-fluid flex-grow-1 py-5 mt-navbar">
+    {{ content }}
+  </main>
+
+  <!-- =============== FOOTER =============== -->
+  <footer class="bg-dark text-center py-3 border-top border-warning mt-auto">
+   <small class="text-white">© {{ 'now' | date: '%Y' }} Mohammed Farhaan Buckas — Built with 💻 &amp; ☕.</small>
+  </footer>
+
+  <!-- =============== VENDOR JS =============== -->
+   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+  <!-- Anime.js for additional micro‑animations -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.topology.min.js"></script>
+ 
+  <script defer src="{{ '/assets/js/main.js'  | relative_url }}"></script>
+
+  {%- if page.extra_js -%}
+        {%- for js in page.extra_js -%}
+      <script defer src="{{ js }}"></script>
+    {%- endfor -%}
+  {%- endif -%}
+</body>
+</html>

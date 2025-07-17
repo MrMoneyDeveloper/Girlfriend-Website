@@ -1,0 +1,471 @@
+/* ==================================================
+   RPG‑THEMED CONSOLIDATED STYLESHEET
+   Author: Mohammed Farhaan Buckas – Portfolio Site
+   This file merges all shared + page‑specific styles
+   (Home, About, Skills, etc.) to ensure a single
+   source‑of‑truth. Add <link rel="stylesheet" href="assets/css/style.css"> in every page.
+   ================================================== */
+
+/* ========== 1. ROOT TOKENS & GLOBAL RESET ========= */
+:root {
+  /* Colours */
+  --rpg-gold: #d4af37;         /* Primary accent */
+  --rpg-gold-light: #ffc107;   /* Secondary accent (yellow) */
+  --rpg-bg-dark: #0d1117;      /* Body background */
+  --rpg-bg-mid:  #161b22;      /* Cards / dark panels */
+  --rpg-bg-hero: #111318;      /* Darker hero overlay */
+  --rpg-text-light: #f8f9fa;   /* Main text colour */
+
+  /* Spacing */
+  --rpg-radius-sm: 0.5rem;
+  --rpg-radius-md: 1rem;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  background-color: transparent;
+  color: var(--rpg-text-light);
+  margin: 0;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+h1,h2,h3,h4,h5,h6,
+.navbar-brand { font-family: 'Cinzel', serif; letter-spacing: 1px; }
+
+/* ========== 2. NAVBAR ========= */
+.navbar {
+  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.55);
+}
+.navbar-brand { color: var(--rpg-gold); font-weight: 800; }
+.navbar-brand i { color: var(--rpg-gold-light); }
+.nav-link {
+  color: #ffffffcc !important;
+  transition: color .3s;
+}
+.nav-link:hover, .nav-link.active {
+  color: var(--rpg-gold-light) !important;
+}
+
+/* Sticky offset (because navbar is fixed‑top) */
+.page-offset { margin-top: 4.5rem; }
+
+/* ========== 3. HERO SECTIONS ========= */
+.hero-section,
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 100vh;
+  text-align: center;
+  background: var(--rpg-bg-dark);
+}
+.hero-bg { /* Generic parallax BG image layer */
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 120%;
+  background-size: cover;
+  background-position: center;
+  transform: translateY(0%);
+  z-index: 0;
+}
+.hero-stars {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#ffffff 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 1;
+}
+.hero-bleed { /* full-width hero breakout without causing overflow */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+/* Sub hero sections (smaller banners) */
+.sub-hero-section {
+  position: relative;
+  overflow: hidden;
+}
+.sub-hero-section:not(.bg-mid):not(.bg-dark) {
+  background: var(--rpg-bg-mid);
+}
+
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-inline:auto;
+  background: var(--rpg-bg-mid);
+  padding: 1rem 1.25rem;
+  border-radius: var(--rpg-radius-md);
+}
+.hero-title {
+  font-size: clamp(2.5rem,6vw,4.5rem);
+  text-shadow: 0 0 10px #0008;
+  -webkit-text-stroke: 1px #000;
+}
+.hero-tagline {
+  font-size: clamp(1rem,2.2vw,1.5rem);
+  color: #ffffffcc;
+  max-width: 650px;
+  margin-inline: auto;
+  -webkit-text-stroke: 0.5px #000;
+}
+
+/* ========== 4. BUTTONS ========= */
+.btn-cta {
+  padding: .75rem 1.5rem;
+  font-weight: 600;
+  border: 2px solid var(--rpg-gold);
+  background: transparent;
+  color: var(--rpg-gold);
+  border-radius: var(--rpg-radius-sm);
+  transition: background .3s,color .3s;
+}
+.btn-cta:hover { background: var(--rpg-gold); color: #000; }
+
+/* Utility badge */
+.badge-stat, .stat-badge {
+  background: #343a40;
+  border: 1px solid var(--rpg-gold-light);
+  border-radius: var(--rpg-radius-md);
+  padding: .5rem 1rem; margin:.25rem; display:inline-block;
+}
+
+/* ========== 5. PROFILE (About) ========= */
+.profile-img {
+  width: 180px; height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--rpg-gold-light);
+  box-shadow: 0 0 15px rgba(255,193,7,.4);
+}
+.attribute { width: 220px; max-width: 100%; }
+.attribute .progress { height: .6rem; background:#343a40; border-radius:.25rem; }
+.attribute .progress-bar { background: var(--rpg-gold-light); }
+@media (max-width: 575.98px) {
+  .profile-img { width: 150px; height: 150px; }
+  .attribute { width: 100%; }
+}
+
+/* ===== Timeline (About) ===== */
+.timeline { position: relative; }
+.timeline::before {
+  content: "";
+  position: absolute; left: 50%; top: 0; bottom: 0;
+  width: 2px; background: var(--rpg-gold-light);
+  transform: translateX(-50%);
+}
+.timeline-item { position: relative; margin: 2rem 0; }
+.timeline-item:nth-child(odd) { padding-right: 50%; }
+.timeline-item:nth-child(even){ padding-left: 50%; }
+.timeline-item .circle {
+  position: absolute; top: 1rem; left: 50%; transform: translateX(-50%);
+  width: 1rem; height: 1rem; border-radius: 50%;
+  background: var(--rpg-gold-light); border: 2px solid #343a40; z-index: 2;
+}
+.timeline-item .card {
+  background: var(--rpg-bg-mid);
+  border: 1px solid #343a40;
+  color: var(--rpg-text-light);
+}
+@media (max-width: 992px) {
+  .timeline::before { left: 0; transform: none; }
+  .timeline-item:nth-child(odd), .timeline-item:nth-child(even) { padding: 0 0 0 2.5rem; }
+  .timeline-item .circle { left: 0; transform: none; }
+}
+@media (max-width: 575.98px) {
+  .timeline-item:nth-child(odd), .timeline-item:nth-child(even) { padding-left: 1.5rem; }
+}
+@media (max-width: 575.98px) {
+  .timeline-item:nth-child(odd), .timeline-item:nth-child(even) { padding-left: 1.5rem; }
+}
+
+
+
+/* ========== 6. CORE COMPETENCY CARDS ========= */
+.card.bg-dark {
+  background: var(--rpg-bg-mid) !important;
+  border: 1px solid #343a40;
+  color: var(--rpg-text-light);
+}
+.card.bg-dark .card-title { color: var(--rpg-gold-light); }
+.pillar-card {
+  background: var(--rpg-bg-mid);
+  border: 1px solid #343a40;
+  border-radius: var(--rpg-radius-sm);
+  color: var(--rpg-text-light);
+}
+@media (max-width: 575.98px) {
+  .pillar-card { padding: 1.25rem; }
+}
+
+
+
+/* ========== 7. SKILL TREES ========= */
+.role-select { max-width: 280px; }
+.skill-tree { list-style: none; padding-left: 0; margin: 0; position: relative; }
+.skill-tree li { position: relative; padding-left: 1.5rem; margin-bottom: .5rem; }
+.skill-tree li::before {
+  content: ''; position: absolute; left: 0; top: .9rem; width: 1rem; height: 2px;
+  background: var(--rpg-gold-light);
+}
+.skill-node { /* branch toggle */
+  background: var(--rpg-bg-mid); border: 1px solid #343a40;
+  border-radius: var(--rpg-radius-sm);
+  padding: .35rem .75rem; color: var(--rpg-text-light);
+  width: 100%; text-align: left;
+}
+.skill-node.collapsed::after { content: '+'; float: right; }
+.skill-node:not(.collapsed)::after { content: '−'; float: right; }
+.skill-leaf {
+  display: inline-block; padding: .35rem .75rem;
+  background: #21262d; border: 1px solid #343a40;
+  border-radius: var(--rpg-radius-sm); font-size: .875rem;
+}
+#skills-stars { position: absolute; inset: 0; background: url('../images/constellation.svg') center/cover repeat; opacity: .15; pointer-events: none; }
+
+/* ========== 8. FOOTER ========= */
+footer {
+  background: #ffffff;                    /* white footer */
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: .9rem;
+  color: #111111;                         /* dark text  */
+  border-top: 1px solid var(--rpg-gold-light);
+}
+
+
+/* ========== 9. ANIMATIONS ========= */
+/* Fade‑in util (use class .fade-in) */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in { animation: fadeInUp .8s ease-out forwards; }
+
+/* Bounce cue (used for scroll indicator) */
+@keyframes bounceY {
+  0%,20%,50%,80%,100% { transform: translate(-50%,0); }
+  40% { transform: translate(-50%,-10px); }
+  60% { transform: translate(-50%,-5px); }
+}
+.scroll-cue {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounceY 2s infinite;
+}
+
+/* Parallax helper – any element with class .parallax-y will move slower */
+.parallax-y { will-change: transform; }
+
+/* ========== 10. UTILITIES ========= */
+.text-gold { color: var(--rpg-gold-light) !important; }
+.bg-mid { background: var(--rpg-bg-mid) !important; }
+.bg-panel { background: var(--rpg-bg-mid) !important; }
+.border-gold { border-color: var(--rpg-gold-light) !important; }
+
+/* Readiness fade (body.ready triggers after DOM load) */
+body.preload { opacity: 0; transition: opacity 1s ease-in; }
+body.ready { opacity: 1; }
+
+/* ========== 11. 3D EFFECTS ========= */
+[data-tilt] {
+  transform-style: preserve-3d;
+  transition: transform .2s ease-out;
+  will-change: transform;
+}
+
+/* Hover lift effect for cards */
+.hover-lift {
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,.4);
+}
+
+/* --- Pop-out 3D card effect --- */
+.pop-card {
+  transform-style: preserve-3d;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.pop-card:hover {
+  transform: perspective(600px) translateZ(30px);
+  box-shadow: 0 1rem 2rem rgba(0,0,0,.5);
+}
+
+/* --- Spinning coin profile --- */
+.coin-container {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+  animation: coin-spin 5s linear infinite;
+  transform-style: preserve-3d;
+}
+.coin-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--rpg-gold-light);
+  box-shadow: 0 0 15px rgba(255,193,7,.4);
+  backface-visibility: hidden;
+}
+.coin-face.back { transform: rotateY(180deg); }
+@keyframes coin-spin {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(360deg); }
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 1000;
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+
+/* Game carousel heading */
+.game-title {
+  margin-bottom: 0.5rem;
+  color: var(--rpg-gold-light);
+}
+
+/* Vanta.js background container */
+#vanta-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--rpg-bg-dark);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ========== 12. SKILL MAP PANEL ========= */
+#skills-tree {
+  display: flex;
+  min-height: 600px;
+  border: 2px solid #343a40;
+  border-radius: var(--rpg-radius-sm);
+  margin-top: 2rem;
+}
+
+#skill-side {
+  width: 240px;
+  background: var(--rpg-bg-mid);
+  border-right: 2px solid var(--rpg-gold-light);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+.cat-btn {
+  background: transparent;
+  color: var(--rpg-gold-light);
+  border: 1px solid var(--rpg-gold-light);
+  font-family: 'Cinzel', serif;
+  font-size: .95rem;
+  padding: .65rem 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  text-align: left;
+  transition: .25s;
+}
+
+.cat-btn:hover {
+  background: var(--rpg-gold-light);
+  color: #0d1117;
+}
+
+#skill-panel {
+  flex: 1;
+  padding: 1.5rem;
+  overflow: auto;
+}
+
+.tile-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 1000px;
+}
+
+.skill-tile {
+  position: relative;
+  min-width: 160px;
+  background: var(--rpg-bg-mid);
+  border: 1px solid var(--rpg-gold-light);
+  color: var(--rpg-text-light);
+  padding: 1.1rem 1.3rem;
+  border-radius: var(--rpg-radius-sm);
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 0 6px rgba(212, 175, 55, 0.33);
+  transition: .2s;
+}
+
+.skill-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
+}
+
+.badge {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  background: var(--rpg-gold-light);
+  color: #0d1117;
+  font-size: .65rem;
+  padding: .15rem .4rem;
+  border-radius: 4px;
+}
+
+.badge-cert {
+  background: #198754;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  #skills-tree {
+    flex-direction: column;
+  }
+  #skill-side {
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid var(--rpg-gold-light);
+    flex-direction: row;
+    overflow-x: auto;
+  }
+  #skill-panel {
+    padding: 1rem;
+  }
+  .cat-btn {
+    flex: 1;
+    white-space: nowrap;
+  }
+}
+/* ===== 3D model container + loader ===== */
+.hero-model{position:relative;width:200px;height:200px;margin:0 auto 1rem;}
+.model-loader{position:absolute;top:50%;left:50%;width:32px;height:32px;margin:-16px 0 0 -16px;border:4px solid #ccc;border-top-color:#ffc107;border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+

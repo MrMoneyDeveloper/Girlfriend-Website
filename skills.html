@@ -1,0 +1,36 @@
+---
+layout: default
+title: Skills
+permalink: /skills.html
+description: Mohammed Farhaan Buckas – gold-tile interactive skill map
+extra_js:
+  - "assets/js/skill-tree.js"   # ← d3 is no longer needed
+hero_background: /assets/videos/Index_Wallpaper.gif
+hero_title: Skill Map
+hero_tagline: Explore My Toolkit & Certifications
+---
+
+<style>
+  /* --- global colours still fit dark-mode brand --- */
+  body            { background:#0d1117; color:#f8f9fa; font-family:'Inter',sans-serif }
+  h1,h2,h3        { font-family:'Cinzel',serif; letter-spacing:1px }
+
+  /* --- host container for sidebar + panel (our JS fills it) --- */
+  #skills-tree    { min-height:650px; display:flex; border:2px solid #343a40;
+                    border-radius:.5rem; margin-top:2rem }
+</style>
+
+<!-- ───── Hero banner ───── -->
+<header class="hero-section hero-bleed">
+  <div  class="hero-bg" style="background-image:url('{{ page.hero_background | relative_url }}');">
+  </div>
+  <div class="hero-content text-center">
+    <h1 class="hero-title">{{ page.hero_title }}</h1>
+    <p  class="hero-tagline">{{ page.hero_tagline }}</p>
+  </div>
+</header>
+
+<!-- ───── Skill Map host ───── -->
+<main class="container-fluid flex-grow-1">
+  <div id="skills-tree"></div>
+</main>
