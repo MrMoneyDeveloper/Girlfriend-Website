@@ -48,7 +48,11 @@
                 }
               }
               if(imgs.length && hasAnime){
-                anime({targets: imgs, scale:[0.8,1], opacity:[0,1], delay:200, duration:700, easing:'easeOutBack'});
+                if(entry.target.id === 'gallery'){
+                  anime({targets: imgs, scale:[0.8,1], opacity:[0,1], delay:anime.stagger(200,{start:100}), duration:700, easing:'easeOutQuad'});
+                } else {
+                  anime({targets: imgs, scale:[0.8,1], opacity:[0,1], delay:200, duration:700, easing:'easeOutBack'});
+                }
               }
               if(listItems.length && hasAnime){
                 anime({targets: listItems, translateY:[20,0], opacity:[0,1], delay:anime.stagger(100,{start:300}), duration:600, easing:'easeOutQuad'});
@@ -58,6 +62,18 @@
           });
         }, {threshold:0.3});
         observer.observe(sec);
+      });
+    }
+
+// ---- Gallery hover effect ----
+    if(hasAnime){
+      document.querySelectorAll('#gallery img').forEach(function(img){
+        img.addEventListener('mouseenter', function(){
+          anime({targets: img, scale:1.05, duration:300, easing:'easeOutQuad'});
+        });
+        img.addEventListener('mouseleave', function(){
+          anime({targets: img, scale:1, duration:300, easing:'easeOutQuad'});
+        });
       });
     }
 
