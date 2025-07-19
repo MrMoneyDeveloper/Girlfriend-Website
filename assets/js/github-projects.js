@@ -49,7 +49,6 @@ window.addEventListener('DOMContentLoaded', () => {
         col.appendChild(card);
         listEl.appendChild(col);
       });
-      if (window.ScrollTrigger) ScrollTrigger.refresh(true);
     })
     .catch(err => {
       console.error('GitHub fetch error:', err);
