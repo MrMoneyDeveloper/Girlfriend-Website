@@ -252,16 +252,3 @@ hero_tagline: Character Profile & Journey
 </section>
 
 </main>
-
-<!-- ===== Page Animations ===== -->
-<script>
-  document.addEventListener('DOMContentLoaded',()=>{
-    gsap.from('.hero-content',{opacity:0,y:-40,duration:1});
-    gsap.utils.toArray('section').forEach(sec=>{
-      gsap.fromTo(sec,{opacity:0,y:30},{opacity:1,y:0,duration:0.8,immediateRender:false,
-        scrollTrigger:{trigger:sec,start:'top 80%'}});
-         });
-  
-  gsap.to('.hero-section',{backgroundPositionY:'20%',ease:'none',scrollTrigger:{trigger:'.hero-section',start:'top top',end:'bottom top',scrub:true}});
-  });
-</script>
