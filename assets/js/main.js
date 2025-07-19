@@ -39,6 +39,7 @@
               var heading = entry.target.querySelector('h1, h2');
               var imgs = entry.target.querySelectorAll('img');
               var extras = entry.target.querySelectorAll('p, a.btn');
+              var listItems = entry.target.querySelectorAll('li');
               if(heading){
                 if(hasText){
                   $(heading).textillate({ in: { effect: 'fadeInDown' } });
@@ -49,8 +50,8 @@
               if(imgs.length && hasAnime){
                 anime({targets: imgs, scale:[0.8,1], opacity:[0,1], delay:200, duration:700, easing:'easeOutBack'});
               }
-              if(extras.length && hasAnime){
-                anime({targets: extras, translateY:[20,0], opacity:[0,1], delay:anime.stagger(100,{start:400}), duration:700, easing:'easeOutQuad'});
+              if(listItems.length && hasAnime){
+                anime({targets: listItems, translateY:[20,0], opacity:[0,1], delay:anime.stagger(100,{start:300}), duration:600, easing:'easeOutQuad'});
               }
               observer.unobserve(entry.target);
             }
