@@ -9,8 +9,8 @@
 /* ========== 1. ROOT TOKENS & GLOBAL RESET ========= */
 :root {
   /* Colours */
-  --rpg-gold: #d4af37;         /* Primary accent */
-  --rpg-gold-light: #ffc107;   /* Secondary accent (yellow) */
+  --rpg-gold: #ff69b4;         /* Primary accent (pink) */
+  --rpg-gold-light: #ffb6c1;   /* Secondary accent (light pink) */
   --rpg-bg-dark: #0d1117;      /* Body background */
   --rpg-bg-mid:  #161b22;      /* Cards / dark panels */
   --rpg-bg-hero: #111318;      /* Darker hero overlay */
@@ -20,6 +20,14 @@
   --rpg-radius-sm: 0.5rem;
   --rpg-radius-md: 1rem;
 }
+
+/* Override Bootstrap warning utilities with pink hues */
+.text-warning,
+.link-warning { color: var(--rpg-gold-light) !important; }
+.bg-warning,
+.bg-warning-subtle { background-color: var(--rpg-gold-light) !important; }
+.border-warning,
+.border-warning-subtle { border-color: var(--rpg-gold-light) !important; }
 
 * { box-sizing: border-box; }
 
@@ -466,6 +474,6 @@ body.ready { opacity: 1; }
 }
 /* ===== 3D model container + loader ===== */
 .hero-model{position:relative;width:200px;height:200px;margin:0 auto 1rem;}
-.model-loader{position:absolute;top:50%;left:50%;width:32px;height:32px;margin:-16px 0 0 -16px;border:4px solid #ccc;border-top-color:#ffc107;border-radius:50%;animation:spin .8s linear infinite}
+.model-loader{position:absolute;top:50%;left:50%;width:32px;height:32px;margin:-16px 0 0 -16px;border:4px solid #ccc;border-top-color:var(--rpg-gold-light);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
