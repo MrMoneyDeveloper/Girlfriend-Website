@@ -7,7 +7,7 @@ I’ll let you know once it’s ready for review.
 
 ## Overview
 
-This project is a **single-page web celebration** created for **Klerissa Sadasivan**’s special day. It is a static site (no back-end) built to highlight cherished memories, inside jokes, and the qualities that make Klerissa special. The page is composed of eight distinct sections (from a hero banner to a final call-to-action), each featuring engaging text and an image, with dynamic animations to bring the content to life. The site has been deployed on GitHub Pages for easy sharing and access.
+This project is a **single-page web celebration** created for **Klerissa Sadasivan**’s special day. It is a static site (no back-end) built to highlight cherished memories, inside jokes, and the qualities that make Klerissa special. The page is composed of six distinct sections (from a hero banner to a gallery), each featuring engaging text and an image, with dynamic animations to bring the content to life. The site has been deployed on GitHub Pages for easy sharing and access.
 
 **Key objectives of the site:**
 
@@ -18,7 +18,7 @@ This project is a **single-page web celebration** created for **Klerissa Sadasiv
 
 ## Features & Technologies
 
-* **Eight Themed Sections with Images:** The page is divided into 8 sections (including the top hero section), each with its own theme and an accompanying image or gallery. These sections cover everything from **Our Story** and **Favorites** to a **Gallery** of photos and a **“Send Wishes”** contact info section. The layout uses a mix of light and dark backgrounds for contrast, and each section’s content is centered for a clean, readable look.
+* **Six Themed Sections with Images:** The page is divided into 6 sections (including the top hero section), each with its own theme and an accompanying image or gallery. These sections cover everything from **Our Story** and **Favorites** to a **Gallery** of photos. The layout uses a mix of light and dark backgrounds for contrast, and each section’s content is centered for a clean, readable look.
 
 * **Animated Background (Vanta.js Fog):** A beautiful animated fog background is rendered using **Vanta.js** (WebGL) with colors customized to Klerissa’s taste. The fog has a pink/purple hue (using `highlightColor: 0xff00f0` and `lowlightColor: 0xff00af` for bright pink highlights) to reflect her favorite color. This effect runs behind the content (attached to a `#vanta-bg` div) and provides an eye-catching, interactive background that moves as the user’s mouse moves.
 
@@ -34,17 +34,17 @@ This project is a **single-page web celebration** created for **Klerissa Sadasiv
 
 ## Content Sections
 
-The webpage is organized into the following sections, each designed to showcase a different aspect of the celebration. Below is an outline of all eight sections and the intended content for each:
+The webpage is organized into the following sections, each designed to showcase a different aspect of the celebration. Below is an outline of all six sections and the intended content for each:
 
-1. **Hero Section (Home):** This is the top banner of the page, setting the festive tone. It features a big **“Happy Birthday”** message as the title (which can be personalized to include her name or nickname, e.g. *“Happy Birthday, Bubs!”*), and a subtitle or tagline. For example, the tagline could be *“Celebrating another year of joy”* (as a placeholder) or something more personal. The hero may also display **the date** (July 18, 2025) to mark the occasion. The Vanta fog background is prominently visible here, creating a moving backdrop of pinkish fog. The text in this section is animated (via Textillate) to appear with a flourish. There is also a call-to-action button labeled “Send Wishes” that scrolls down to the contact section, inviting friends or family to contribute their wishes.
+1. **Hero Section (Home):** This is the top banner of the page, setting the festive tone. It features a big **“Happy Birthday”** message as the title (which can be personalized to include her name or nickname, e.g. *“Happy Birthday, Bubs!”*), and a subtitle or tagline. For example, the tagline could be *“Celebrating another year of joy”* (as a placeholder) or something more personal. The hero may also display **the date** (July 18, 2025) to mark the occasion. The Vanta fog background is prominently visible here, creating a moving backdrop of pinkish fog. The text in this section is animated (via Textillate) to appear with a flourish.
 
 2. **Our Story (About):** This section highlights the couple’s story and important milestones together. A suitable photo of the couple or Klerissa is displayed here (for example, a cute profile picture or a picture from when they first met). The content is a narrative or paragraph about how far they’ve come:
 
    * It can talk about **how they met and their first date** – for instance, mentioning that on their first date Klerissa even picked out new clothes for him, essentially giving him a sense of style he lacked before. This is a touching memory that shows her influence on him.
-   * It should celebrate **reaching the 3-month anniversary** of their relationship. (They’ve made it past 3 months together as of 2025/07/18, which is a meaningful milestone he’s proud of.)
+   * It should celebrate **reaching the 4-month anniversary** of their relationship. (They’ve made it past 4 months together as of 2025/07/18, which is a meaningful milestone he’s proud of.)
    * It can mention overcoming **long-distance challenges** – acknowledging that being apart hasn’t been easy, but their bond has stayed strong. This emphasizes the effort and commitment in the relationship.
 
-   The tone here is warm and appreciative, giving an overview of their journey so far. For example, the text might read: *“From our first date (where you literally gave me a style makeover!) to today – 3 months later – every moment with you has been amazing. Even doing long-distance, we’ve made it work and grown closer every day.”* This sets a heartfelt context for the celebration.
+   The tone here is warm and appreciative, giving an overview of their journey so far. For example, the text might read: *“From our first date (where you literally gave me a style makeover!) to today – 4 months later – every moment with you has been amazing. Even doing long-distance, we’ve made it work and grown closer every day.”* This sets a heartfelt context for the celebration.
 
 3. **Favorites:** This section is all about **Klerissa’s favorite things**. It’s a fun, personal section to show that he remembers and cherishes the things she loves. The content can be presented as a short paragraph or a list of favorites, such as:
 
@@ -59,7 +59,7 @@ The webpage is organized into the following sections, each designed to showcase 
 4. **Milestones:** In this section, the site can enumerate **special milestones** and achievements in Klerissa’s life or in their relationship. Since the couple has only been together a few months, the milestones might focus on personal achievements of Klerissa or joint milestones:
 
   
-   * Relationship milestones could be listed: *“First Date – \[12th aprill 2025, met and instantly clicked”*, *“April 2025 – Became official as a couple”*, *“July 18, 2025 – 3 months together!”*, etc. Each milestone can be a short bullet or sentence.
+   * Relationship milestones could be listed: *“First Date – 12 April 2025, met and instantly clicked”*, *“March 15, 2025 – Became official as a couple”*, *“July 18, 2025 – 4 months together!”*, etc. Each milestone can be a short bullet or sentence.
    * Another milestone: *“Survived long-distance for \[2025/march 15]  months use this date to add a counter”* could be noted, as a lighthearted achievement for them.
 
    This section should use a chronological or list format to briefly mention each milestone. The placeholder text was about “special achievements throughout the years,” which can be adapted to fit their context. An image could be something like a timeline graphic or any photo representing progress (or even another personal photo if available, such as a picture from a celebrated moment). The idea is to visually break out these key points so she can reminisce on each one.
@@ -84,10 +84,6 @@ The webpage is organized into the following sections, each designed to showcase 
    * Maybe a picture of her doing something she loves, or a nice portrait of her.
 
    The gallery is a visual highlight and doesn’t need much text (it has no paragraph in the template, just a heading and the images). If desired, each image could have a short `alt` text or caption to say what it is (e.g., “At McDonald’s – look at that smile!”). The gallery makes the page more engaging and personal by letting her relive those moments visually.
-
-7. **– Random Section:** 
-
-
 
 Each section flows into the next as you scroll down, and the navigation bar at the top lets you jump to any section instantly (it sticks to the top as you scroll, since it’s a fixed-top navbar). The use of consistent styling, section headers, and images helps ensure the page is easy to navigate and visually appealing.
 
