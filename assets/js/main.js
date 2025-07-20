@@ -10,6 +10,16 @@
         window.addEventListener('click', startAudio);
       });
     }
+
+    // Intro overlay logic
+    var overlay = document.getElementById('intro-overlay');
+    var openBtn = document.getElementById('open-btn');
+    if(overlay && openBtn){
+      openBtn.addEventListener('click', function(){
+        overlay.classList.add('hidden');
+        if(audio){ audio.play(); }
+      });
+    }
     // ---- Tilt effect ----
     document.querySelectorAll('[data-tilt]').forEach(function(el){
       var height = el.clientHeight;

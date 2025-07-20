@@ -507,3 +507,21 @@ body.ready { opacity: 1; }
 @media screen and (max-width:768px){
   .image-wrapper{aspect-ratio:3/4;}
 }
+
+/* ===== Intro Overlay ===== */
+#intro-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--rpg-bg-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+#intro-overlay.hidden { display: none; }
+#intro-overlay .gift-img {
+  width: 220px;
+  height: auto;
+  border-radius: var(--rpg-radius-md);
+}
