@@ -1,5 +1,15 @@
 (function(){
   document.addEventListener('DOMContentLoaded', function(){
+     var audio = document.getElementById('page-audio');
+    if(audio){
+      audio.play().catch(function(){
+        function startAudio(){
+          audio.play();
+          window.removeEventListener('click', startAudio);
+        }
+        window.addEventListener('click', startAudio);
+      });
+    }
     // ---- Tilt effect ----
     document.querySelectorAll('[data-tilt]').forEach(function(el){
       var height = el.clientHeight;
