@@ -158,8 +158,8 @@ h1,h2,h3,h4,h5,h6,
 
 /* ========== 5. PROFILE (About) ========= */
 .profile-img {
-  width: 180px;
-  height: 180px;
+  width: 360px;
+  height: 360px;
   object-fit: cover;
   border-radius: 0;
   border: none;
@@ -170,7 +170,7 @@ h1,h2,h3,h4,h5,h6,
 .attribute .progress { height: .6rem; background:#343a40; border-radius:.25rem; }
 .attribute .progress-bar { background: var(--rpg-gold-light); }
 @media (max-width: 575.98px) {
-  .profile-img { width: 150px; height: 150px; }
+  .profile-img { width: 300px; height: 300px; }
   .attribute { width: 100%; }
 }
 
@@ -327,8 +327,8 @@ body.ready { opacity: 1; }
 /* --- Spinning coin profile --- */
 .coin-container {
   position: relative;
-  width: 180px;
-  height: 180px;
+  width: 360px;
+  height: 360px;
   margin: 0 auto;
   animation: coin-spin 5s linear infinite;
   transform-style: preserve-3d;
